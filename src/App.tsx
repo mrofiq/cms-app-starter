@@ -1,20 +1,35 @@
 import * as React from 'react';
 import './App.css';
 
-import logo from './logo.svg';
+// import logo from "./logo.svg";
+import { Col, Container, Row } from 'reactstrap';
+import OrderList from './OrderList';
+import { MenuListApp } from './menubar/reducer';
+
+// const menuitems = [
+//   { id: 'dashboard', title: 'Dashboard' },
+//   { id: 'orders', title: 'Order Management' },
+//   { id: 'shipping', title: 'Shipping' },
+// ];
 
 class App extends React.Component {
+  public menuClicked = (id: string) => (event: any) => {
+    console.log('clicked ' + id);
+  };
+
   public render() {
+    const Content = OrderList;
     return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to React</h1>
-        </header>
-        <p className="App-intro">
-          To get started, edit <code>src/App.tsx</code> and save to reload.
-        </p>
-      </div>
+      <Container>
+        <Row>
+          <Col xs="3">
+            <MenuListApp />
+          </Col>
+          <Col>
+            <Content />
+          </Col>
+        </Row>
+      </Container>
     );
   }
 }
