@@ -1,8 +1,16 @@
 import React, { Component } from 'react';
 import { Table } from 'reactstrap';
 
+const data = [{ id: 1, title: 'title' }, { id: 2, title: 'title2' }];
 export default class OrderList extends Component {
   public render() {
+    let orderlist = data.map(i => (
+      <tr>
+        <td>{i.id}</td>
+        <td>{i.title}</td>
+      </tr>
+    ));
+    let i = 'row';
     return (
       <Table>
         <thead>
@@ -20,18 +28,7 @@ export default class OrderList extends Component {
             <td>Otto</td>
             <td>@mdo</td>
           </tr>
-          <tr>
-            <th scope="row">2</th>
-            <td>Jacob</td>
-            <td>Thornton</td>
-            <td>@fat</td>
-          </tr>
-          <tr>
-            <th scope="row">3</th>
-            <td>Larry</td>
-            <td>the Bird</td>
-            <td>@twitter</td>
-          </tr>
+          {orderlist}
         </tbody>
       </Table>
     );

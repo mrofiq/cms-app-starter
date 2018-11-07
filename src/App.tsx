@@ -3,8 +3,10 @@ import './App.css';
 
 // import logo from "./logo.svg";
 import { Col, Container, Row } from 'reactstrap';
-import OrderList from './OrderList';
+import OrderList from './content/OrderList';
+import { ShippingList } from './content/ShippingList';
 import { MenuListApp } from './menubar/reducer';
+import { ContentApp } from './content/reducer';
 
 // const menuitems = [
 //   { id: 'dashboard', title: 'Dashboard' },
@@ -18,7 +20,7 @@ class App extends React.Component {
   };
 
   public render() {
-    const Content = OrderList;
+    //const Content = ShippingList;
     return (
       <Container>
         <Row>
@@ -26,7 +28,7 @@ class App extends React.Component {
             <MenuListApp />
           </Col>
           <Col>
-            <Content />
+            <ContentApp />
           </Col>
         </Row>
       </Container>

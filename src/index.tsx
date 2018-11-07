@@ -3,11 +3,14 @@ import * as ReactDOM from 'react-dom';
 import App from './App';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import registerServiceWorker from './registerServiceWorker';
-import { createStore } from 'redux';
+import { createStore, applyMiddleware, combineReducers } from 'redux';
 import { Provider } from 'react-redux';
-import { menubar } from './menubar/reducer';
+import { menu } from './menubar/reducer';
+import { content } from './content/reducer';
+import { logger } from 'redux-logger';
 
-const store = createStore(menubar);
+const cmsApp = combineReducers({ menu, content });
+const store = createStore(cmsApp, applyMiddleware(logger));
 
 ReactDOM.render(
   <Provider store={store}>
